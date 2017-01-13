@@ -233,3 +233,38 @@ This endpoint provides lists of publishers, ranked by the number of times their 
   },
 ]
 ```
+
+### `/api/fields`
+
+This endpoint provides lists of fields, ranked by number of syllabi.
+
+### Parameters
+
+- `country` (int) - Match fields with syllabi assigned in a given country, identified by 3-letter ISO 3166-1 codes.
+  - `/api/fields?country=USA`
+  - `/api/fields?country=USA&country=ARG`
+
+- `query` (str) - A free-text search query, which gets looked up against the index of field names.
+  - `/api/institutions?query=English`
+
+### Format
+
+```json
+[
+  {
+    "name": "History",
+    "rank": 1,
+    "syllabus_count": 20000,
+  },
+  {
+    "name": "English",
+    "rank": 2,
+    "syllabus_count": 19000,
+  },
+  {
+    "name": "Computer Science",
+    "rank": 3,
+    "syllabus_count": 18000,
+  },
+]
+```
