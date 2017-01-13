@@ -179,3 +179,57 @@ This endpoint provides lists of institutions, ranked by number of syllabi.
   },
 ]
 ```
+
+### `/api/publishers`
+
+This endpoint provides lists of publishers, ranked by the number of times their books / articles are assigned in syllabi.
+
+### Parameters
+
+- `field` (int) - Match publishers with texts assigned in syllabi in one or more fields, identified by ID.
+  - `/api/publishers?field=1`
+  - `/api/publishers?field=1&field=2`
+
+- `country` (int) - Match publishers in a given country, identified by 3-letter ISO 3166-1 codes.
+  - `/api/publishers?country=USA`
+  - `/api/publishers?country=USA&country=ARG`
+
+- `query` (str) - A free-text search query, which gets looked up against the index of publisher names.
+  - `/api/publishers?query=Cengage`
+
+- `pub_year_start` (int) - Match publishers with texts that were published during or after the provided year.
+  - `/api/publishers?pub_year_start=1900`
+
+- `pub_year_end` (int) - Match publishers with texts that were published during or before the provided year.
+  - `/api/publishers?pub_year_end=2000`
+
+- `class_year_start` (int) - Match publishters texts that were assigned in classes during or after the provided year.
+  - `/api/publishers?class_year_start=2000`
+
+- `class_year_start` (int) - Match publishers with texts that were assigned in classes during or after the provided year.
+  - `/api/publishers?class_year_end=2005`
+
+### Format
+
+```json
+[
+  {
+    "name": "Elsevier",
+    "rank": 1,
+    "assignment_count": 125000,
+    "text_count": 4500,
+  },
+  {
+    "name": "Cengage",
+    "rank": 2,
+    "assignment_count": 110000,
+    "text_count": 3000,
+  },
+  {
+    "name": "MacMillan",
+    "rank": 3,
+    "assignment_count": 100000,
+    "text_count": 2000,
+  },
+]
+```
