@@ -1,7 +1,7 @@
 
 # JSON API Spec
 
-### `/api/texts`
+## `/api/texts`
 
 This endpoint provides lists of texts, ranked the number of times they are assigned in the corpus and cropped down by various filters.
 
@@ -28,7 +28,7 @@ This endpoint provides lists of texts, ranked the number of times they are assig
 - `inst_type` (bool) - Match texts that were assigned at institutions of a particular type (eg, "Liberal Arts College"). The types will be identified by integer IDs, which correspond to identifiers on US government datasets.
   - `/api/texts?inst_type=5`
 
-#### Example
+### Format
 
 ```json
 [
