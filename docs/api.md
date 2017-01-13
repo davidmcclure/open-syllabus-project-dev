@@ -56,9 +56,9 @@ This endpoint provides lists of texts, ranked the number of times they are assig
   {
     "title": "The Elements of Style",
     "pub_year": 1920,
+    "rank": 1,
     "appearances": 3934,
     "score": 100.0,
-    "rank": 1,
     "author_first": "William",
     "author_middle": "A.",
     "author_last": "Strunk",
@@ -66,9 +66,9 @@ This endpoint provides lists of texts, ranked the number of times they are assig
   {
     "title": "Biology",
     "pub_year": 1987,
+    "rank": 2,
     "appearances": 3057,
     "score": 97.2,
-    "rank": 2,
     "author_first": "Neil",
     "author_middle": null,
     "author_last": "Cambell",
@@ -76,9 +76,9 @@ This endpoint provides lists of texts, ranked the number of times they are assig
   {
     "title": "Frankenstein",
     "pub_year": 1818,
+    "rank": 3,
     "appearances": 2320,
     "score": 95.0,
-    "rank": 3,
     "author_first": "Mary",
     "author_middle": "Wollstonecraft",
     "author_last": "Shelley",
@@ -92,22 +92,48 @@ This endpoint provides lists of authors, ranked by the number of times their tex
 
 ### Parameters
 
-- `birth_year_start` (int) - Match authors who were born in or after the provided year.
-  - `/api/texts?birth_year_start=1900`
+- `institution` (int) - Match authors that were assigned in syllabi at a given institution, identified by ID.
+  - `/api/authors?institution=1`
+  - `/api/authors?institution=1&institution=2`
+
+- `field` (int) - Match texts that were assigned in syllabi in a given institution, identified by ID.
+  - `/api/authors?field=1`
+  - `/api/authors?field=1&field=2`
+
+- `country` (int) - Match texts that were assigned at institutions in a given country, identified by 3-letter ISO 3166-1 codes.
+  - `/api/authors?country=USA`
+  - `/api/authors?country=USA&country=ARG`
+
+- `query` (str) - A free-text search query, which gets looked up against the index of author names.
+  - `/api/authors?query=Hemingway`
 
 ### Format
 
 ```json
 [
   {
-    "title": "The Elements of Style",
-    "pub_year": 1920,
-    "appearances": 3934,
-    "score": 100.0,
+    "name_first": "Mark",
+    "name_middle": null,
+    "name_last": "Twain",
     "rank": 1,
-    "author_first": "William",
-    "author_middle": "A.",
-    "author_last": "Strunk",
+    "appearances": 4400,
+    "text_count": 20,
+  },
+  {
+    "name_first": "Mary",
+    "name_middle": "Wollstonecraft",
+    "name_last": "Shelley",
+    "rank": 2,
+    "appearances": 2000,
+    "text_count": 13,
+  },
+  {
+    "name_first": "William",
+    "name_middle": "A.",
+    "name_last": "Strunk",
+    "rank": 3,
+    "appearances": 1000,
+    "text_count": 10,
   },
 ]
 ```
