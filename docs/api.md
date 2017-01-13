@@ -268,3 +268,41 @@ This endpoint provides lists of fields, ranked by number of syllabi.
   },
 ]
 ```
+
+### `/api/countries`
+
+This endpoint provides lists of countries, ranked by number of syllabi.
+
+### Parameters
+
+- `field` (int) - Match countries with texts assigned in syllabi in one or more fields, identified by ID.
+  - `/api/countries?field=1`
+  - `/api/countries?field=1&field=2`
+
+- `query` (str) - A free-text search query, which gets looked up against the index of country names.
+  - `/api/institutions?query=Argentina`
+
+### Format
+
+```json
+[
+  {
+    "name": "United States",
+    "rank": 1,
+    "syllabus_count": 3000000,
+    "inst_count": 3000,
+  },
+  {
+    "name": "Canada",
+    "rank": 2,
+    "syllabus_count": 2000000,
+    "inst_count": 2000,
+  },
+  {
+    "name": "Australia",
+    "rank": 3,
+    "syllabus_count": 1000000,
+    "inst_count": 1000,
+  },
+]
+```
