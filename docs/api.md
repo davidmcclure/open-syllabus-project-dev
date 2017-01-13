@@ -22,10 +22,6 @@ This endpoint provides lists of texts, ranked the number of times they are assig
 - `open_access` (bool) - If this parameter is included, just return OA texts. This is just a boolean flag, so no value needs to be provided.
   - `/api/texts?open_access`
 
-- `us_state` (str) - Match texts that were assigned at US institutions in the provided state, using two-letter postal abbreviations.
-  - `/api/texts?us_state=CA`
-  - `/api/texts?us_state=CA&us_state=MA`
-
 - `inst_type` (int) - Match texts that were assigned at institutions of a particular type (eg, "Liberal Arts College"). The types will be identified by integer IDs, which correspond to identifiers on US government datasets.
   - `/api/texts?inst_type=1`
   - `/api/texts?inst_type=1&inst_type=2`
@@ -45,6 +41,13 @@ This endpoint provides lists of texts, ranked the number of times they are assig
 - `country` (int) - Match texts that were assigned at institutions in a given country, identified by 3-letter ISO 3166-1 codes.
   - `/api/texts?country=USA`
   - `/api/texts?country=USA&country=ARG`
+
+- `us_state` (str) - Match texts that were assigned at US institutions in the provided state, using two-letter postal abbreviations.
+  - `/api/texts?us_state=CA`
+  - `/api/texts?us_state=CA&us_state=MA`
+
+- `query` (str) - A free-text search query, which gets looked up against the index of text titles.
+  - `/api/texts?query=Republic`
 
 ### Format
 
