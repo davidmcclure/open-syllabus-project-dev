@@ -1,7 +1,7 @@
 
 # JSON API Spec
 
-## `/api/texts`
+### `/api/texts`
 
 This endpoint provides lists of texts, ranked the number of times they are assigned in the corpus and cropped down by various filters.
 
