@@ -96,11 +96,11 @@ This endpoint provides lists of authors, ranked by the number of times their tex
   - `/api/authors?institution=1`
   - `/api/authors?institution=1&institution=2`
 
-- `field` (int) - Match texts that were assigned in syllabi in a given institution, identified by ID.
+- `field` (int) - Match authors that were assigned in syllabi in a given institution, identified by ID.
   - `/api/authors?field=1`
   - `/api/authors?field=1&field=2`
 
-- `country` (int) - Match texts that were assigned at institutions in a given country, identified by 3-letter ISO 3166-1 codes.
+- `country` (int) - Match authors that were assigned at institutions in a given country, identified by 3-letter ISO 3166-1 codes.
   - `/api/authors?country=USA`
   - `/api/authors?country=USA&country=ARG`
 
@@ -134,6 +134,48 @@ This endpoint provides lists of authors, ranked by the number of times their tex
     "rank": 3,
     "appearances": 1000,
     "text_count": 10,
+  },
+]
+```
+
+### `/api/institutions`
+
+This endpoint provides lists of institutions, ranked by number of syllabi.
+
+### Parameters
+
+- `field` (int) - Match institutions with syllabi in one or more fields, identified by ID.
+  - `/api/institutions?field=1`
+  - `/api/institutions?field=1&field=2`
+
+- `country` (int) - Match institutions in a given country, identified by 3-letter ISO 3166-1 codes.
+  - `/api/institutions?country=USA`
+  - `/api/institutions?country=USA&country=ARG`
+
+- `query` (str) - A free-text search query, which gets looked up against the index of institution names.
+  - `/api/institutions?query=Yale`
+
+### Format
+
+```json
+[
+  {
+    "name": "Yale University",
+    "country": "USA",
+    "rank": 1,
+    "syllabus_count": 20000,
+  },
+  {
+    "name": "Stanford University",
+    "country": "USA",
+    "rank": 2,
+    "syllabus_count": 19000,
+  },
+  {
+    "name": "Harvard University",
+    "country": "USA",
+    "rank": 3,
+    "syllabus_count": 18000,
   },
 ]
 ```
